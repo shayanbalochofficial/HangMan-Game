@@ -33,13 +33,26 @@ function displayWord() {
   const innerWord = wordElement.innerText.replace(/\n/g, "");
   if (innerWord === selectedWord) {
     finalMessage.innerText = "Congratulations! YOU WON";
-      finalMessageRevealWord.innerText = "";
-      popup.style.display = 'flex';
-      playable = false;
+    finalMessageRevealWord.innerText = "";
+    popup.style.display = "flex";
+    playable = false;
   }
 }
 
 function updateWrongLettersElement() {
-    wrongLettersElement.innerHTML = `
-    ${wrongLetters.length > 0 ?}`
+  wrongLettersElement.innerHTML = `
+  ${wrongLetters.length > 0 ? "<p>Wrong</p>" : ""}
+  ${wrongLetters.map((letter) => `<span>${letter}</span>`)}
+  `;
+
+  figureParts.forEach((part, index) => {
+    const errors = wrongLetters.length;
+    index < errors
+      ? (part.style.display = "block")
+      : (part.style.display = "none");
+  });
+
+  if (wrongLetters.length === figureParts.length) {
+    finalMessage.innerText;
+  }
 }
