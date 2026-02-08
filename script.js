@@ -1,4 +1,4 @@
-const wordElement = getElementById("word");
+const wordElement = document.getElementById("word");
 const wrongLettersElement = document.getElementsByClassName("wrong-letters");
 const playAgainButton = document.getElementById("play-button");
 const popup = document.getElementById("popup-container");
@@ -9,8 +9,8 @@ const finalMessageRevealWord = document.getElementById(
 );
 const figureParts = document.querySelectorAll(".figure-part");
 
-const words = ["Nia"]; //! Will select all words later for now focusing on making it working
-const selectedWord = words[Math.floor(Math.random() * words.length)];
+const words = ["nia"]; //! Will select all words later for now focusing on making it working
+let selectedWord = words[Math.floor(Math.random() * words.length)];
 
 let playable = true;
 
@@ -78,7 +78,26 @@ window.addEventListener("keypress", (e) => {
         } else {
           showNotification();
         }
+      } else {
+        if (!wrongLetters.includes(letter)) {
+          wrongLetters.push(letter);
+          updateWrongLettersElement();
+        } else {
+          showNotification();
+        }
       }
     }
   }
 });
+
+playAgainButton.addEventListener("click", () => {
+  playable = true;
+  correctLetters.splice(0);
+  wrongLetters.splice(0);
+  selectedWord = words[Math.floor(Math.random() * words.length)];
+  displayWord();
+  updateWrongLettersElement();
+  popup.style.display = "none";
+});
+
+displayWord();
