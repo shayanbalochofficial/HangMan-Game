@@ -29,3 +29,22 @@ h1 {
   text-transform: uppercase;
 }
 
+h2,
+h3 {
+  letter-spacing: 0.2rem;
+}
+
+.game-container {
+  padding: 20px 30px;
+  position: relative;
+  margin: auto;
+  height: 350px;
+  width: 450px;
+}
+
+.figure-container {
+  fill: transparent;
+  stroke: var(--light-color);
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
