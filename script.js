@@ -33,5 +33,13 @@ function displayWord() {
   const innerWord = wordElement.innerText.replace(/\n/g, "");
   if (innerWord === selectedWord) {
     finalMessage.innerText = "Congratulations! YOU WON";
+      finalMessageRevealWord.innerText = "";
+      popup.style.display = 'flex';
+      playable = false;
   }
+}
+
+function updateWrongLettersElement() {
+    wrongLettersElement.innerHTML = `
+    ${wrongLetters.length > 0 ?}`
 }
