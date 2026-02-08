@@ -53,6 +53,32 @@ function updateWrongLettersElement() {
   });
 
   if (wrongLetters.length === figureParts.length) {
-    finalMessage.innerText;
+    finalMessage.innerText = "Unforutnalately 😅, You Lost";
+    finalMessageRevealWord.innerText = `The answer was ${selectedWord}`;
+    popup.style.display = "flex";
+    playable = false;
   }
 }
+
+function showNotification() {
+  notification.classList.add("show");
+  setTimeout(() => {
+    notification.classList.remove("show");
+  }, 2000);
+}
+
+window.addEventListener("keypress", (e) => {
+  if (playable) {
+    const letter = e.key.toLowerCase();
+    if (letter >= "a" && letter <= "z") {
+      if (selectedWord.includes(letter)) {
+        if (!correctLetters.includes(letter)) {
+          correctLetters.push(letter);
+          displayWord();
+        } else {
+          showNotification();
+        }
+      }
+    }
+  }
+});
