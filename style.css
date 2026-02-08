@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
+
+:root {
+  --primary-color: #1f2f61;
+  --secondary-color: #224ca4;
+  --light-color: #a7c2da;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: --primary-color;
+}
