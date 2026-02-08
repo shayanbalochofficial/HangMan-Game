@@ -11,5 +11,21 @@
 }
 
 body {
-  background-color: --primary-color;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  font-family: "DotGothic16", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  overflow: hidden;
+  margin: 0;
 }
+
+h1 {
+  margin: 20px 0 0;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
